@@ -1,6 +1,6 @@
 <?php
 namespace BLL;
-include_once ' ';
+include_once  'C:\xampp\htdocs\projeto-escolar-php\DAL\Departamento.php';
 use DAL;
 
 class Departamento
