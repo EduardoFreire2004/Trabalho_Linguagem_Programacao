@@ -6,7 +6,7 @@ class Matricula
     private ?int $id;
     private ?int $aluno;
     private ?int $atividade;
-    private ?\DateTimeInterface $datamatricula;  
+    private ?string $datamatricula;  
 
     public function __construct()
     {
@@ -47,7 +47,7 @@ class Matricula
         return $this->datamatricula;
     }
 
-    public function setDatamatricula(\DateTimeInterface $datamatricula)  
+    public function setDatamatricula(string $datamatricula)  
     {
         $this->datamatricula = $datamatricula;
     }
