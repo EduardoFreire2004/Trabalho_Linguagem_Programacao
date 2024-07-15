@@ -1,8 +1,4 @@
-<?php
-  session_start(); 
-   if (!isset($_SESSION['login']))
-       Header("Location: ../index.php");   
-?> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,20 +18,27 @@
 
 
 
-    <title>Detalhes de Equipamentos</title>
+    <title>MENU</title>
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper orange darken-3">
+        <div class="nav-wrapper blue darken-3">
             <a href="#" class="brand-logo right">
-                <img src="/lpadst1php2024/view/images/logo.png" alt=""
-                width="130" height="65"> Usuario:  <?php echo $_SESSION['login']; ?>
+                <img src="/projeto-escolar-php/view/images/logo_branca.png" alt=""
+                width="80" height="65"> 
             </a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="/lpadst1php2024/view/departamento/lstDepartamento.php">Departamentos</a></li>
-                <li><a href="/lpadst1php2024/view/equipamento/lstEquipamento.php">Equipamentos</a></li>
-                <li><a href="/lpadst1php2024/view/logout.php">Logout</a></li>
+                <li><a href="/projeto-escolar-php/view/Professor/lstProfessor.php">Professores</a></li>
+                <li><a href="/projeto-escolar-php/view/Aluno/lstAluno.php">Alunos</a></li>
+                <li><a href="/projeto-escolar-php/view/Departamento/lstDepartamento.php">Departamentos</a></li>
+                <li><a href="/projeto-escolar-php/view/Atividade/lstAtividade.php">Atividades</a></li>
+                <li><a href="/projeto-escolar-php/view/Matricula/lstMatricula.php">Matrículas</a></li>
+                
+
+
+
+                <li><a href="/projeto-escolar-php/view/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>

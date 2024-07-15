@@ -1,10 +1,12 @@
 <?php 
-    include_once 'C:\xampp\htdocs\projeto-escolar-php\DAL\conexao.php'; 
+    include_once 'C:\xampp\htdocs\projeto-escolar-php\DAL\Conexao.php'; 
 
     $usuario = $_POST['usuario']; 
     $senha = $_POST['senha'];
 
+    //echo "Usuario: " . $usuario . "</br></br>"; 
     echo "Senha: " . $senha . "  -  ".  md5($senha) . " <br/><br/>";
+    // echo "Senha: " . $senha . "  -  ".  sha1($senha) . " <br/><br/>";
 
     $sql = "Select * from usuario where usuario=?;";
     $con = \dal\Conexao::conectar(); 
@@ -17,7 +19,6 @@
     catch (Exception $e) { echo "usuario inexistente"; }
 
     \dal\Conexao::desconectar(); 
-
 
   if (md5($senha) == $linha['senha']){
        session_start();

@@ -21,6 +21,8 @@
     <title>Listar Matrículas </title>
 </head>
 <body>
+    <?php include_once '../menu.php';?>
+
     <h1>Listar Matrículas</h1>
     <table class="highlight"> 
         <tr>
@@ -28,7 +30,11 @@
             <th>ALUNO</th>
             <th>ATIVIDADE</th>
             <th>DATA MATRÍCULA</th>
+            <th>ADICIONAR MATRÍCULAS :  
+                <a class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons"
+                        onclick="JavaScript:location.href='formMatricula.php'">add</i></a>
 
+            </th>
         </tr>
         
         <?php foreach($lstMatricula as $matricula) { ?>
@@ -37,9 +43,31 @@
                 <td><?php echo $matricula->getAluno();?> </td>
                 <td><?php echo $matricula->getAtividade();?> </td>
                 <td><?php echo $matricula->getDatamatricula();?> </td>
+                <td>
+                    <a class="btn-floating btn-small waves-effect waves-light orange"
+                        onclick="JavaScript:location.href='formEdtMatricula.php?id=' + '<?php echo $matricula->getid(); ?>'">
+                        <i class="material-icons">edit</i></a>
+
+                    <a class="btn-floating btn-small waves-effect waves-light blue"
+                        onclick="JavaScript:location.href='formDetMatricula.php?id=' + '<?php echo $matricula->getid(); ?>'"><i
+                            class="material-icons">details</i></a>
+
+                    <a class="btn-floating btn-small waves-effect waves-light red"
+                        onclick="JavaScript: remover( <?php echo $matricula->getId(); ?> )">
+                        <i class="material-icons">delete</i></a>
+
+                </td>
             </tr>
        <?php } ?>
 
     </table>
 </body>
 </html>
+
+<script>
+    function remover(id) {
+        if (confirm('Excluir o Matricula ' + id + '?')) {
+            location.href = 'remMatricula.php?id=' + id;
+        }
+    }
+</script>

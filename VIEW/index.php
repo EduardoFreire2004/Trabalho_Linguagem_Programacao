@@ -8,9 +8,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/happily-colored-snlogo/128/medium.png">
+    <link rel="icon" href="../VIEW/images/logo.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Login!</title>
+    <title>Login</title>
     <link href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -28,15 +28,14 @@
 <body>
 
     <div class="had-container">
-
-        <div class="parallax-container logueo">
-            <div class="parallax"><img src="https://alistapart.com/d/438/fig-6--background-blend-mode.jpg"></div>
+        <div class="parallax-container logueo ">
+            <div class="parallax"></div>
             <div class="row"><br>
                 <div class="col m8 s8 offset-m2 offset-s2 center">
-                    <h4 class="truncate bg-card-user">
-                        <img src="../VIEW/images/logo.png" alt="" height="80">
+                    <h4 class="truncate bg-card-user blue darken-3">
+                        <img src="../VIEW/images/logo_login.png" alt="" height="150" >
                         <div class="row login">
-                            <h4>Informe os seus dados de acesso!!!!</h4>
+                            <h4>Informe os seus dados de acesso!!</h4>
                             <form method="POST" action="login.php" class="col s12">
                                 <div class="row">
                                     <div class="input-field col m12 s12">
@@ -64,6 +63,9 @@
     </div>
 
     </div> <!-- fin del .container -->
+    <div>
+        <br><br>
+    </div>
 
     <?php include_once 'footer.php' ?>
 

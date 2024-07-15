@@ -3,8 +3,8 @@
    use BLL\Atividade;
    
    $bllAtividade = new \BLL\Atividade();
-   $lstAtividade = $bllAtividade->Select(); 
-
+   $lstAtividade = $bllAtividade->Select();
+   
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,8 @@
     <title>Listar Atividades </title>
 </head>
 <body>
+    <?php include_once '../menu.php';?>
+
     <h1>Listar Atividades</h1>
     <table class="highlight"> 
         <tr>
@@ -29,6 +31,11 @@
             <th>DESCRIÇÃO</th>
             <th>PROFESSOR</th>
             <th>DEPARTAMENTO</th>
+            <th>QUANTIDADE DE ALUNOS</th>
+            <th>ADICIONAR ATIVIDADE :
+                <a class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons"
+                        onclick="JavaScript:location.href='formAtividade.php'">add</i></a>
+            </th>
 
         </tr>
         
@@ -39,9 +46,32 @@
                 <td><?php echo $atividade->getDescricao();?> </td>
                 <td><?php echo $atividade->getProfessor();?> </td>
                 <td><?php echo $atividade->getDepartamento();?> </td>
+                <td><?php echo $atividade->getQtdeAlunos();?> </td>
+                <td>
+                    <a class="btn-floating btn-small waves-effect waves-light orange"
+                        onclick="JavaScript:location.href='formEdtAtividade.php?id=' + '<?php echo $atividade->getId(); ?>'">
+                        <i class="material-icons">edit</i></a>
+
+                    <a class="btn-floating btn-small waves-effect waves-light blue"
+                        onclick="JavaScript:location.href='formDetAtividade.php?id=' + '<?php echo $atividade->getId(); ?>'"><i
+                            class="material-icons">details</i></a>
+
+                    <a class="btn-floating btn-small waves-effect waves-light red"
+                        onclick="JavaScript: remover( <?php echo $atividade->getId(); ?> )">
+                        <i class="material-icons">delete</i></a>
+
+                </td>
             </tr>
        <?php } ?>
 
     </table>
 </body>
 </html>
+
+<script>
+    function remover(id) {
+        if (confirm('Excluir o Atividade ' + id + '?')) {
+            location.href = 'remAtividade.php?id=' + id;
+        }
+    }
+</script>
