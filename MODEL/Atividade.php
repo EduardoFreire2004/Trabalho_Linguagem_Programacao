@@ -8,6 +8,7 @@ class Atividade
     private ?string $descricao;
     private ?int $professor;
     private ?int $departamento;
+    private ?int $qtdeAlunos;
 
     public function __construct()
     {
@@ -61,6 +62,16 @@ class Atividade
     public function setDepartamento(int $departamento)
     {
         $this->departamento = $departamento;
+    }
+
+    public function getQtdeAlunos()
+    {
+        return $this->qtdeAlunos;
+    }
+
+    public function setQtdeAlunos(int $qtdeAlunos)
+    {
+        $this->qtdeAlunos = $qtdeAlunos;
     }
 
 }
