@@ -10,6 +10,11 @@ class Professor
         return $dalProfessor->Select();
     }
 
+    public function SelectByID(int $id)
+    {   
+        $dalProfessor = new \DAL\Professor();   
+        return $dalProfessor->SelectByID($id);
+    }
 
     public function Insert(\MODEL\Professor $professor){
         $dalProfessor = new \DAL\Professor();   

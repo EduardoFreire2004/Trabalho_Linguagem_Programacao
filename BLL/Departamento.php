@@ -10,6 +10,11 @@ class Departamento
         return $dalDpto->Select();
     }
 
+    public function SelectByID(int $id)
+    {   
+        $dalDpto = new \DAL\Departamento();   
+        return $dalDpto->SelectByID($id);
+    }
 
     public function Insert(\MODEL\Departamento $departamento){
         $dalDpto = new \DAL\Departamento();   
@@ -26,7 +31,7 @@ class Departamento
 
    public function Delete(int $id){   
         $dalDpto = new \DAL\Departamento();   
-        return $dalDepartamento->Delete($id);
+        return $dalDpto->Delete($id);
     }
 
 
