@@ -10,6 +10,12 @@ class Aluno
         return $dalAluno->Select();
     }
 
+    public function SelectByID(int $id)
+    {   
+        $dalAluno = new \DAL\Aluno();   
+        return $dalAluno->SelectByID($id);
+    }
+
 
     public function Insert(\MODEL\Aluno $aluno){
         $dalAluno = new \DAL\Aluno();  
@@ -18,9 +24,9 @@ class Aluno
     }
 
 
-    public function Update(\MODEL\Aluno $aluno){
+    public function Update(\MODEL\Aluno $aluno) {
         $dalAluno = new \DAL\Aluno();   
-
+        
         return $dalAluno->Update($aluno);
     }
 
