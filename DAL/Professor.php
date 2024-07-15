@@ -27,6 +27,25 @@ class Professor
         return $lstProfessor;
     }
 
+    public function SelectByID(int $id)
+    {
+        $sql = "Select * from professor where id=?;";
+        $con = Conexao::conectar(); 
+        $query = $con->prepare($sql);
+        $query->execute (array($id));
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        Conexao::desconectar(); 
+
+        $professor = new \MODEL\Professor();
+
+        $professor->setId($linha['id']);
+        $professor->setNome($linha['nome']);
+        $professor->setEmail($linha['email']);
+   
+        return $professor;
+
+    }
+
     public function Insert(\MODEL\Professor $professor)
     {
         $sql = "INSERT INTO professor (nome, email) VALUES ('{$professor->getNome()}','{$professor->getEmail()}');";

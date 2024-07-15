@@ -27,6 +27,25 @@ class Departamento
         return $lstDpto;
     }
 
+    public function SelectByID(int $id)
+    {
+        $sql = "Select * from departamento where id=?;";
+        $con = Conexao::conectar(); 
+        $query = $con->prepare($sql);
+        $query->execute (array($id));
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        Conexao::desconectar(); 
+
+        $dpto = new \MODEL\Departamento();
+
+        $dpto->setId($linha['id']);
+        $dpto->setNome($linha['nome']);
+        $dpto->setDescricao($linha['descricao']);
+   
+        return $dpto;
+
+    }
+
     public function Insert(\MODEL\Departamento $dpto)
     {
         $sql = "INSERT INTO departamento (nome, descricao) VALUES ('{$dpto->getNome()}','{$dpto->getDescricao()}');";
@@ -37,6 +56,7 @@ class Departamento
 
         return $result;
     }
+
 
     public function Update(\MODEL\Departamento $dpto)
     {

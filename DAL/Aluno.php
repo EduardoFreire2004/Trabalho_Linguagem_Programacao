@@ -41,6 +41,27 @@ class Aluno
         return $result;
     }
 
+    public function SelectByID(int $id)
+    {
+        $sql = "Select * from aluno where id=?;";
+        $con = Conexao::conectar(); 
+        $query = $con->prepare($sql);
+        $query->execute (array($id));
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        Conexao::desconectar(); 
+
+        $aluno = new \MODEL\Aluno();
+        $aluno->setId($linha['id']);
+        $aluno->setNome($linha['nome']);
+        $aluno->setEndereco($linha['endereco']);
+        $aluno->setNascimento($linha['nascimento']);
+        $aluno->setEmail($linha['email']);
+        $aluno->setCpf($linha['cpf']);
+   
+        return $aluno;
+
+    }
+
     public function Update(\MODEL\Aluno $aluno)
     {
         $sql = "UPDATE aluno SET nome = ?, nascimento = ?, endereco = ?, email = ?, cpf = ? WHERE id = ?;";

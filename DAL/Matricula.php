@@ -28,6 +28,25 @@ class Matricula
         return $lstMatricula;
     }
 
+    public function SelectByID(int $id)
+    {
+        $sql = "Select * from matricula where id=?;";
+        $con = Conexao::conectar(); 
+        $query = $con->prepare($sql);
+        $query->execute (array($id));
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        Conexao::desconectar(); 
+
+        $matricula = new \MODEL\Matricula();
+        $matricula->setId($linha['id']);
+        $matricula->setDatamatricula($linha['datamatricula']);
+        $matricula->setAluno($linha['aluno']);
+        $matricula->setAtividade($linha['atividade']);
+       
+        return $matricula;
+
+    }
+
     public function Insert(\MODEL\Matricula $matricula)
     {
         $sql = "INSERT INTO matricula (aluno, atividade, datamatricula) VALUES ('{$matricula->getAluno()}','{$matricula->getAtividade()}','{$matricula->getDataMatricula()}');";
