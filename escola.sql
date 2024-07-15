@@ -97,6 +97,23 @@ CREATE TABLE `professor` (
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
+
+DROP TABLE IF EXISTS `usuario`;
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(35) NOT NULL,
+  `senha` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `usuario`, `senha`) VALUES
+(1, 'Isadora@gmail.com', '059a1c70fb5d34c5dafe6a76c4f88847'),
+(2, 'joaopedro@gmail.com', '059a1c70fb5d34c5dafe6a76c4f88847'),
+(3, 'eduardo@gmail.com', '059a1c70fb5d34c5dafe6a76c4f88847');
+
 --
 -- Índices para tabelas despejadas
 --
