@@ -10,13 +10,17 @@ class Atividade
         return $dalAtividade->Select();
     }
 
+    public function SelectByID(int $id)
+    {   
+        $dalAtividade = new \DAL\Atividade();   
+        return $dalAtividade->SelectByID($id);
+    }
 
     public function Insert(\MODEL\Atividade $atividade){
         $dalAtividade = new \DAL\Atividade();   
  
         return $dalAtividade->Insert($atividade);
     }
-
 
     public function Update(\MODEL\Atividade $atividade){
         $dalAtividade = new \DAL\Atividade();   
